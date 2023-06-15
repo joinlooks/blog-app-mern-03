@@ -1,0 +1,37 @@
+.main {
+	margin: 10px;
+	display: grid;
+	grid-template-columns: 0.4fr 0.6fr;
+	gap: 10px;
+	background-color: var(--secondary-background);
+	padding: 15px;
+	margin: 20px;
+}
+
+.left img {
+	height: 250px;
+	width: 100%;
+	object-fit: cover;
+}
+
+.right h1 {
+	font-size: 25px;
+}
+
+.info {
+	font-size: 13px;
+	font-weight: bold;
+	display: flex;
+	gap: 5px;
+	color: var(--secondary-foreground);
+	margin: 5px auto;
+}
+
+@media screen and (width <= 500px) {
+	.main {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		margin: 20px 10px;
+	}
+}
