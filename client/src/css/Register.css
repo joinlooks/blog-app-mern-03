@@ -1,0 +1,33 @@
+.register {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+	height: 80vh;
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+input {
+	width: 100%;
+	border: none;
+	text-align: center;
+	background-color: var(--secondary-background);
+	font-size: 16px;
+	padding: 8px;
+}
+
+input:focus {
+	background-color: var(--tertiary-background);
+}
+
+button {
+	width: 100%;
+	border: none;
+	background-color: var(--primary-background);
+	color: var(--tertiary-foreground);
+	font-size: 16px;
+	padding: 8px;
+	cursor: pointer;
+}
