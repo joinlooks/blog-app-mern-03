@@ -4,8 +4,13 @@ import Header from "./Header.jsx";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
+import axios from "axios";
 
 const App = () => {
+	axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
+	axios.defaults.withCredentials = true;
+	axios.defaults.headers.post["Content-Type"] = "application/json";
+
 	return (
 		<div className="app">
 			<Header />
