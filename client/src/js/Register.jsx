@@ -1,26 +1,36 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../css/Register.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "./contexts/UserContext";
 
 const Register = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
+	const {
+		username: loggedInUsername,
+		setUsername: setLoggedInUsername,
+		id,
+		setId,
+	} = useContext(UserContext);
 
-	/**
-	 *  @param {Event} e
-	 */
+	/** @param {Event} e */
 	const handleRegister = async (e) => {
 		e.preventDefault();
 
 		try {
 			const response = await axios.post("/register", { username, password });
-			console.log(response.data);
+
+			// If user created successfully, navigate to homepage
+			if (response.status === 201) {
+				setLoggedInUsername(username);
+				setId(response.data.id);
+				navigate("/");
+			}
 			//
 		} catch (error) {
-			const response = error.response;
-			if (response.status === 400) {
-				console.log(response.data.message);
-			}
+			console.log(error.message);
 		}
 	};
 

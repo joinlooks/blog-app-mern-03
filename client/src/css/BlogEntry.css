@@ -6,6 +6,8 @@
 	background-color: var(--secondary-background);
 	padding: 15px;
 	margin: 20px;
+	text-decoration: none;
+	color: var(--primary-foreground);
 }
 
 .left img {
@@ -25,6 +27,10 @@
 	gap: 5px;
 	color: var(--secondary-foreground);
 	margin: 5px auto;
+}
+
+.summary {
+	color: var(--secondary-foreground);
 }
 
 @media screen and (width <= 500px) {

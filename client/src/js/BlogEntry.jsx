@@ -1,31 +1,27 @@
+import { Link } from "react-router-dom";
 import "../css/BlogEntry.css";
+import { format } from "date-fns";
 
-const BlogEntry = () => {
+const BlogEntry = ({ _id, title, summary, cover, createdAt, author }) => {
 	return (
-		<div className="main">
+		<Link to={`/post/${_id}`} className="main">
 			<div className="left">
 				<img
-					src="https://techcrunch.com/wp-content/uploads/2023/06/GettyImages-1429997322.jpg?w=430&h=230&crop=1"
-					alt=""
+					src={`${import.meta.env.VITE_SERVER_URL}/${cover}`}
+					alt="Author didn't uploaded"
 				/>
 			</div>
 			<div className="right">
-				<h1>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus,
-					corporis!
-				</h1>
+				<h1>{title}</h1>
 				<div className="info">
-					<span>Walter White</span>
-					<span>12-11-2043 11.00am</span>
+					<span>@{author.username}</span>
+					<span>
+						{format(new Date(createdAt), "EEE, MMM dd, yyyy, hh:mm aaa")}
+					</span>
 				</div>
-				<div>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
-					animi delectus molestiae repudiandae ut ab eligendi perspiciatis qui.
-					Ab tempore officia fugit cum natus explicabo amet minus! Nam,
-					aspernatur fugit.
-				</div>
+				<div className="summary">{summary}</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

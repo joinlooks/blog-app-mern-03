@@ -1,0 +1,7 @@
+.blog-page .nothing-to-display {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+	color: var(--secondary-foreground);
+}
